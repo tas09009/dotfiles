@@ -1,0 +1,80 @@
+#!/bin/bash
+alias mt='function _movetotrash() { for file in "$@"; do mv "$file" ~/Trash/; done; }; _movetotrash'
+
+# navigation
+alias lr="ls -ltr"
+
+# dotfiles
+alias sz="source ~/.zshrc"
+alias sa="source ~/.aliases"
+alias se="source .env"
+alias va="vim ~/.aliases"
+alias vz="vim ~/.zshrc"
+alias vb="vim ~/brew.sh"
+alias vv="vim ~/.vimrc"
+
+# git
+alias gs="git status"
+alias gc="git checkout"
+alias gas="git add * && git stash save "$1""
+alias gacm="git add * && git commit -m "$1""
+alias gacmp="git add * && git commit -m "$1" && git push"
+alias gac="git add * && git commit"
+alias gsp="git stash pop"
+alias gsl="git stash list"
+alias gbd="git branch -d"
+alias gdc="git diff --cached"
+alias gp="git push"
+
+# programs
+alias v="vim"
+alias p3="python3"
+
+# history search
+alias hg="history | grep"
+alias hgc="history | grep 'git commit'"
+
+# search
+alias gi="grep -ilR" 
+
+ff () {
+    find . -name "$1" | xargs grep -ni "$2"
+}
+alias acs="apt-cache search"
+
+# terminal commands
+alias c="clear"
+alias d="cd ~/Downloads"
+alias p="cd ~/Projects"
+alias r="cd ~/Downloads/resumes"
+alias t="~/Trash"
+alias dush="du -sh */ | sort -hr"
+alias venv="source venv/bin/activate"
+alias pv="python3 -m venv venv"
+alias pr="pip install -r requirements.txt"
+alias de="deactivate"
+
+# Project shortcuts
+alias store="cd ~/Projects/rest-api-flask-python/rest-api-store"
+alias wrec="cd ~/Projects/wrec/Wrec-API"
+alias niceties="cd ~/Projects/external/rcNiceties/rc-niceties"
+
+alias docker-build="docker build -t rest-apis-flask-python ."
+alias docker-run="docker run -dp 5000:5000 -w /app -v '$(pwd):/app' rest-apis-flask-python sh -c 'flask run --host 0.0.0.0'"
+
+# Wrec
+alias wrec-b="docker build -t wrec-api ."
+## Run the docker container locally with the flask development server and debugger
+alias wrec-d='docker run -dp 5000:5000 -w /app -v "$(pwd):/app" wrec-api sh -c "flask run --host 0.0.0.0"'
+
+
+alias pwdev="psql wrec-dev"
+# pele = (p)sql (ele)phant
+alias pele="psql postgresql://tzmyhyab:VcSEcoqgi7hWdtUnUKqta9B2oVYSVc6f@mahmud.db.elephantsql.com/tzmyhyab"
+
+# Flask DB
+alias fdu="flask db upgrade"
+alias fdd="flask db downgrade"
+alias fdh="flask db history"
+alias fdc="flask db current"
+

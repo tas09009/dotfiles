@@ -1,0 +1,13 @@
+- link:
+    ~/.aliases: aliases
+    ~/.bashrc: bashrc
+    ~/.zshrc: zshrc
+    ~/.vimrc: vimrc
+    ~/.gitconfig: gitconfig
+    ~/.git-credentials: git-credentials
+
+- shell:
+    - [chmod +x shell_scripts_software.sh, Making script executable]
+    - [git submodule update --init --recursive, Installing submodules]
+    - [./shell_scripts_software.sh, Running installation script]
+
